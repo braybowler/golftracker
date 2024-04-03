@@ -1,29 +1,34 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <title>Register with GolfTracker</title>
+</head>
 
-        <title>GolfTracker - Register</title>
-    </head>
+<a href="{{route('login.show')}}">Login</a>
 
-    <body>
-        <div>
-            <h1>Welcome to GolfTracker</h1>
-            <h2>We'll need some basic information to get you started: </h2>
-            <form method="POST" action="{{ route('register.register') }}"
-                @csrf
-                <label for="emailInput">Email:</label>
-                <input id="emailInput" name="email" type="email"/>
-                <label for="passwordInput">Password:</label>
-                <input id="passwordInput" name="password" type="password"/>
-                <input type="submit" value="Register"/>
-            </form>
-        </div>
-        <div>
-            <h2>Already registered? Login
-                <a href={{ route('login.login') }}>here</a>.
-            </h2>
-        </div>
-    </body>
-</html>
+@if($errors->any())
+    <div>
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+<form action="{{route('register.register')}}" method="POST">
+    @csrf
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" value="{{old('name')}}"/>
+    </div>
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" value="{{old('email')}}"/>
+    </div>
+    <div>
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password"/>
+    </div>
+    <div>
+        <input type="submit" value="Register"/>
+    </div>
+</form>
