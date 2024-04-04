@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GolfBagController;
 use App\Http\Controllers\WebLoginController;
 use App\Http\Controllers\WebLogoutController;
 use App\Http\Controllers\WebRegistrationController;
@@ -21,3 +22,5 @@ Route::post('/logout', [WebLogoutController::class, 'logout'])->name('logout.log
 
 Route::get('/register', [WebRegistrationController::class, 'show'])->name('register.show');
 Route::post('/register', [WebRegistrationController::class, 'register'])->name('register.register');
+
+Route::resource('golfbags', GolfBagController::class);
