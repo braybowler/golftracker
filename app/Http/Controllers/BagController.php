@@ -2,48 +2,45 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\GolfBag;
+use App\Models\Bag;
 use Illuminate\Http\Request;
 
-class GolfBagController extends Controller
+class BagController extends Controller
 {
     public function index()
     {
-        $golfBag = GolfBag::query()
-            ->where('user_id', auth()->user()->id)
+        $bags = Bag::query()
+            ->where('user_id', auth()->id())
             ->get();
 
-        return view('golfbag.index')->with([
-            'golfBag' => $golfBag,
+        return view('bag.index')->with([
+            'bags' => $bags,
         ]);
     }
 
     public function create()
     {
-        return view('golfbag.create');
+        return view('bag.create');
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'nickname' => '',
-            'make' => '',
-            'model' => '',
+            'nickname' => 'nullable',
+            'make' => 'nullable',
+            'model' => 'nullable',
         ]);
 
-        GolfBag::create([
-            'user_id' => auth()->user()->id,
+        Bag::create([
+            'user_id' => auth()->id(),
             'nickname' => $request->input('nickname'),
             'make' => $request->input('make'),
             'model' => $request->input('model'),
         ]);
 
-        return redirect('/golfbags');
+        return redirect('/bags');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
         //

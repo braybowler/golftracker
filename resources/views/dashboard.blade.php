@@ -4,5 +4,5 @@
 
 <p>Hi, {{auth()->user()->name}}</p>
 
-<a href="{{route('golfbags.show')}}">My Golf Bag</a>
+<a href="{{route('bags.index')}}">My Bags</a>
 <a href="{{route('logout.show')}}">Logout</a>

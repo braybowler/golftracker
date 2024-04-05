@@ -1,9 +1,9 @@
 <head>
-    <title>Add a Golf Bag</title>
+    <title>Add a Bag</title>
 </head>
 
 <div>
-    <a href="{{route('golfbag.index')}}">All Bags</a>
+    <a href="{{route('bags.index')}}">All Bags</a>
 </div>
 
 @if($errors->any())
@@ -16,7 +16,7 @@
     </div>
 @endif
 
-<form action="{{route('golfbag.store')}}" method="POST">
+<form action="{{route('bags.store')}}" method="POST">
     @csrf
     <div>
         <label for="nickname">Nickname:</label>
@@ -27,7 +27,7 @@
         <input type="text" name="make" id="make" value="{{old('make')}}"/>
     </div>
     <div>
-        <label for="model">Nickname:</label>
+        <label for="model">Model:</label>
         <input type="text" name="model" id="model" value="{{old('model')}}"/>
     </div>
     <div>
