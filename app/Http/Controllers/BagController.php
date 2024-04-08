@@ -43,30 +43,44 @@ class BagController extends Controller
 
     public function show(string $id)
     {
-        //
+        $bag = Bag::findOrFail($id);
+
+        return view('bag.show')->with(['bag' => $bag]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
-        //
+        $bag = Bag::findOrFail($id);
+
+        return view('bag.edit')->with(['bag' => $bag]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'nickname' => 'nullable',
+            'make' => 'nullable',
+            'model' => 'nullable',
+        ]);
+
+        $bag = Bag::findOrFail($id);
+
+        $bag->update([
+            'nickname' => $request->input('nickname'),
+            'make' => $request->input('make'),
+            'model' => $request->input('model'),
+        ]);
+
+        return redirect('/bags');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
-        //
+        Bag::query()
+            ->where('id', $id)
+            ->where('user_id', auth()->id())
+            ->delete();
+
+        return redirect('/bags');
     }
 }

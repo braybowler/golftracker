@@ -15,5 +15,12 @@
         <h3>{{$bag->nickname}}</h3>
         <p>{{$bag->make}}</p>
         <p>{{$bag->model}}</p>
+        <a href="{{route('bags.show', $bag)}}">View Bag Details</a>
+        <a href="{{route('bags.edit', $bag)}}">Edit Bag</a>
+        <form action="{{route('bags.destroy', $bag)}}" method="POST">
+            @csrf
+            @method('DELETE')
+            <input type="submit" value="Delete Bag">
+        </form>
     </div>
 @endforeach
