@@ -15,8 +15,8 @@ return new class extends Migration
             $table->enum('type', Club::TYPE_OPTIONS)->nullable();
             $table->string('make')->nullable();
             $table->string('model')->nullable();
-            $table->tinyInteger('average_carry')->nullable();
-            $table->tinyInteger('average_total')->nullable();
+            $table->bigInteger('average_carry')->nullable();
+            $table->bigInteger('average_total')->nullable();
             $table->timestamps();
         });
     }

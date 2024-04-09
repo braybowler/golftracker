@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Club extends Model
 {
@@ -21,4 +22,9 @@ class Club extends Model
     protected $guarded = [
         'id',
     ];
+
+    public function bag(): BelongsTo
+    {
+        return $this->belongsTo(Bag::class);
+    }
 }
