@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Bag;
 use Illuminate\Http\Request;
 
-class BagController extends Controller
+class WebBagController extends Controller
 {
     public function index()
     {
