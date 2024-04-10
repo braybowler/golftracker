@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\WebBagController;
+use App\Http\Controllers\WebClubController;
 use App\Http\Controllers\WebLoginController;
 use App\Http\Controllers\WebLogoutController;
 use App\Http\Controllers\WebRegistrationController;

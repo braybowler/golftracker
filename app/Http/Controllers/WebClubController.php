@@ -9,10 +9,18 @@ class WebClubController extends Controller
 {
     public function index()
     {
+        $user = auth()->user();
+
+        $clubs = $user->clubs()->get();
+
+        return view('club.index')->with([
+            'clubs' => $clubs,
+        ]);
     }
 
     public function create()
     {
+        return view('club.create');
     }
 
     public function store(Request $request)

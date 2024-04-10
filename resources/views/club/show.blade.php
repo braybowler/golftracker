@@ -13,7 +13,3 @@
     <p>{{$bag->created_at}}</p>
     <p>{{$bag->updated_at}}</p>
 </div>
-
-<div>
-    <a href="{{route('clubs.index')}}">Clubs In Bag</a>
-</div>

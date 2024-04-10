@@ -12,9 +12,10 @@
 
 @foreach($bags as $bag)
     <div>
-        <h3>{{$bag->nickname}}</h3>
-        <p>{{$bag->make}}</p>
-        <p>{{$bag->model}}</p>
+        <h3>Nickname: {{$bag->nickname}}</h3>
+        <p>Make: {{$bag->make}}</p>
+        <p>Model: {{$bag->model}}</p>
+        <p>Clubs in the bag: {{$bag->clubs_count}}</p>
         <a href="{{route('bags.show', $bag)}}">View Bag Details</a>
         <a href="{{route('bags.edit', $bag)}}">Edit Bag</a>
         <form action="{{route('bags.destroy', $bag)}}" method="POST">

@@ -11,6 +11,7 @@ class WebBagController extends Controller
     {
         $bags = Bag::query()
             ->where('user_id', auth()->id())
+            ->withCount('clubs')
             ->get();
 
         return view('bag.index')->with([
