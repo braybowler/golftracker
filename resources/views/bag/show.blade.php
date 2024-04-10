@@ -15,5 +15,5 @@
 </div>
 
 <div>
-    <a href="{{route('clubs.index')}}">Clubs In Bag</a>
+    <a href="{{route('bag.clubs.index', $bag->id)}}">Clubs In Bag</a>
 </div>

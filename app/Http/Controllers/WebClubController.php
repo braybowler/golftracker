@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Club;
+use App\Http\Controllers\Api\Controller;
 use Illuminate\Http\Request;
 
 class WebClubController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+//        if ($request->input('bagId'))
         $user = auth()->user();
 
         $clubs = $user->clubs()->get();

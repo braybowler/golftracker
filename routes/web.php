@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Bag\WebBagClubController;
 use App\Http\Controllers\WebBagController;
 use App\Http\Controllers\WebClubController;
 use App\Http\Controllers\WebLoginController;
@@ -26,3 +27,7 @@ Route::post('/register', [WebRegistrationController::class, 'register'])->name('
 
 Route::resource('bags', WebBagController::class);
 Route::resource('clubs', WebClubController::class);
+
+Route::name('bag.')->prefix('/bag/{bag}')->group(function () {
+    Route::resource('clubs', WebBagClubController::class);
+});
