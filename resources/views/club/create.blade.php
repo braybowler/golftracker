@@ -21,7 +21,7 @@
     <div>
         <label for="type">Type:</label>
         <select name="type" id="type">
-            @foreach(Club::TYPE_OPTIONS as $option)
+            @foreach(\App\Models\Club::TYPE_OPTIONS as $option)
                 <option value="{{$option}}">{{$option}}</option>
             @endforeach
         </select>

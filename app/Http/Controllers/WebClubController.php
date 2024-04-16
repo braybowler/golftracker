@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Api\Controller;
+use App\Models\Club;
 use Illuminate\Http\Request;
 
 class WebClubController extends Controller
 {
     public function index(Request $request)
     {
-//        if ($request->input('bagId'))
         $user = auth()->user();
 
         $clubs = $user->clubs()->get();
@@ -26,6 +26,25 @@ class WebClubController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'type' => 'nullable',
+            'make' => 'nullable|string',
+            'model' => 'nullable|string',
+            'average_carry' => 'nullable|integer',
+            'average_total' => 'nullable|integer',
+        ]);
+
+        Club::create([
+            'user_id' => auth()->id(),
+            'type' => $request->input('nickname'),
+            'make' => $request->input('make'),
+            'model' => $request->input('model'),
+            'average_carry' => $request->input('average_carry'),
+            'average_total' => $request->input('average_total'),
+        ]);
+
+        return redirect('/clubs');
+
     }
 
     public function show(string $id)

@@ -5,4 +5,5 @@
 <p>Hi, {{auth()->user()->name}}</p>
 
 <a href="{{route('bags.index')}}">My Bags</a>
+<a href="{{route('clubs.index')}}">My Clubs</a>
 <a href="{{route('logout.show')}}">Logout</a>

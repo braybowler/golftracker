@@ -11,7 +11,8 @@ return new class extends Migration
     {
         Schema::create('clubs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('bag_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('bag_id')->nullable()->constrained()->nullOnDelete();
             $table->enum('type', Club::TYPE_OPTIONS)->nullable();
             $table->string('make')->nullable();
             $table->string('model')->nullable();

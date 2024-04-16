@@ -28,9 +28,9 @@ class WebBagController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nickname' => 'nullable',
-            'make' => 'nullable',
-            'model' => 'nullable',
+            'nickname' => 'nullable|string',
+            'make' => 'nullable|string',
+            'model' => 'nullable|string',
         ]);
 
         Bag::create([

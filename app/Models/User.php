@@ -35,7 +35,12 @@ class User extends Authenticatable
         return $this->hasMany(Bag::class);
     }
 
-    public function clubs(): hasManyThrough
+    public function clubs(): hasMany
+    {
+        return $this->hasMany(Club::class);
+    }
+
+    public function clubsInBag(): hasManyThrough
     {
         return $this->hasManyThrough(Club::class, Bag::class);
     }
