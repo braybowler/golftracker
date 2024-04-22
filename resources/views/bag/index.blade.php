@@ -15,7 +15,7 @@
         <h3>Nickname: {{$bag->nickname}}</h3>
         <p>Make: {{$bag->make}}</p>
         <p>Model: {{$bag->model}}</p>
-        <p>Clubs in the bag: {{$bag->clubs_count}}</p>
+        <p>Clubs in the bag: <a href="{{route('bag.clubs.index', $bag)}}">{{$bag->clubs_count}}</a></p>
         <a href="{{route('bags.show', $bag)}}">View Bag Details</a>
         <a href="{{route('bags.edit', $bag)}}">Edit Bag</a>
         <form action="{{route('bags.destroy', $bag)}}" method="POST">
